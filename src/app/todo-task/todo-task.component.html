@@ -1,0 +1,7 @@
+<div>
+  <div class="container" *ngFor="let task of taskList; let i = index">
+    {{i + 1}}. {{task}}
+    <button (click)="removeTask(task)">Remove</button>
+    <button (click)="taskDone(task)">Done</button>
+  </div>
+</div>

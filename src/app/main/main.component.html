@@ -1,0 +1,27 @@
+<div class="container">
+  <app-add-task (output)="addTask($event)"></app-add-task>
+</div>
+
+<div class="container">
+  Lista zadan
+</div>
+
+<div>
+  <ng-container *ngIf='todoTasks.length > 0; then todoTask; else noData'></ng-container>
+
+  <ng-template #todoTask>
+    <app-todo-task [taskList]="todoTasks" (taskToDone)="taskDone($event)" (taskToRemove)="removeTask($event)"></app-todo-task>
+  </ng-template>
+
+  <ng-template #noData>
+    <div class="container">
+      Brak taskow
+    </div>
+  </ng-template>
+</div>
+
+<div>
+  <ng-container *ngIf='doneTasks.length > 0; then doneTask; else noData'></ng-container>
+  <ng-template #doneTask>
+    <app-done-task [taskList]="doneTasks"></app-done-task>
+  </ng-template>
